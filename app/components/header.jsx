@@ -1,3 +1,4 @@
+
 import { Link ,  useLocation } from '@remix-run/react'
 import logo from '../../public/img/logo.svg'
 
@@ -14,13 +15,12 @@ function Header() {
             className='logo' 
             to='/'
             >
-             <img   
-             src={logo}
-             className='logo'
-             alt='Imagen logo'
-             
-             
-             />   
+              <img   
+              src={logo}
+              className='logo'
+              alt='Imagen logo'
+              />  
+
             </Link >
             <nav className='navegacion' >
                 <Link 
