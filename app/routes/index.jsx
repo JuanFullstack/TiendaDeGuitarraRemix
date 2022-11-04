@@ -74,7 +74,7 @@ function Index() {
           <Curso curso={curso.attributes} />
          
 
-          <section>
+          <section className='margenblog' >
               <Listadoblog post={post} />
           </section>
 
