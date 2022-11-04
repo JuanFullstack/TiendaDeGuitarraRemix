@@ -4,32 +4,13 @@ import {
   Meta,
   Outlet,
   Scripts,
+  useCatch,
   ScrollRestoration,
 } from "@remix-run/react";
 
 import styles from '~/styles/index.css'
 import Header from '~/components/header';
 import Footer from "~/components/footer";
-
-
-
-
-// export default function App() {
-//   return (
-//     <html lang="en">
-//       <head>
-//         <Meta />
-//         <Links />
-//       </head>
-//       <body>
-//         <Outlet />
-//         <ScrollRestoration />
-//         <Scripts />
-//         <LiveReload />
-//       </body>
-//     </html>
-//   );
-// }
 
 
 
@@ -108,3 +89,33 @@ function Document ( {children} ) {
      </html>
   )}
 
+
+
+  // MANEJO DE ERRORES 
+
+ 
+  
+  export function CatchBoundary() {
+
+      const error = useCatch();
+
+      return (
+          <Document>
+              <p className='error'>
+                  {error.status} {error.statusText}
+              </p>
+          </Document>
+      );
+  }
+  
+ 
+  export function ErrorBoundary({error}) {
+
+    return (
+        <Document>
+            <p className='error'>
+                {error.status} {error.statusText}
+            </p>
+        </Document>
+    );
+}

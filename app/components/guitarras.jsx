@@ -8,6 +8,7 @@ function Guitarras({guitarras}) {
     const {descripcion, imagen, nombre, precio, url} = guitarras;
 
     return (
+      
         <div className='guitarra'>
             <img
                 src={imagen.data.attributes.formats.medium.url}
