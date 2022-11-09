@@ -1,20 +1,8 @@
 
 import { useLoaderData } from '@remix-run/react'
 import { getposturl } from "~/models/posts.server"
-
-import styles from '~/styles/guitarras.css'
 import {formatearFecha} from '~/utils/helpers'
 
-export function links () {
-  return [
-      
-          {
-            rel:'stylesheet',
-            href: styles
-          }
-          
-         ]
-}
 
 export async function loader({ params }) {
 

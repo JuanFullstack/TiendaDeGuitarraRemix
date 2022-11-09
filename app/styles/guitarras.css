@@ -80,3 +80,46 @@
 
  }
 
+.formulario {
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.formulario label  {
+
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.formulario select  {
+    text-align: center;
+    padding: 1rem;
+    border: 1px solid black;
+    border-radius: 1rem;
+}
+
+.formulario input[type="submit"]  {
+
+    margin-top: 3rem;
+    background-color: black;
+    color: white;
+    padding: 1.4rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    border: none;
+    transition-property: background-color;
+    transition-duration: 300ms;
+    transition-property: font-size;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+}
+
+.formulario input[type="submit"]:hover {
+    
+    cursor: pointer;
+    background-color: var(--primary);
+    font-size: 3rem ;
+}
+

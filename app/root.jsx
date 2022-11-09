@@ -1,3 +1,5 @@
+
+import  { useState, useEffect } from 'react';
 import {
   Links,
   LiveReload,
@@ -7,7 +9,6 @@ import {
   useCatch,
   ScrollRestoration,
 } from "@remix-run/react";
-
 import styles from '~/styles/index.css'
 import Header from '~/components/header';
 import Footer from "~/components/footer";
@@ -61,9 +62,71 @@ export function links () {
 
 
 export default function App() {
+
+  
+  const carritoLS = typeof window !== 'undefined' ?  JSON.parse( localStorage.getItem('carrito') )??[] : null
+
+  const [carrito ,setcarrito] = useState(carritoLS)
+ 
+  useEffect(() => {
+   localStorage.setItem('carrito', JSON.stringify(carrito) )
+   
+  }, [carrito]);
+
+
+
+ const agregarcarrito = (guitarra) => {
+
+     if (carrito.some((GuitarraState) => GuitarraState.id === guitarra.id)) 
+     
+     {
+         const carritoActulizado = carrito.map((GuitarraState) => {
+             if (GuitarraState.id === guitarra.id) {
+                 GuitarraState.cantidad = guitarra.cantidad;
+             }
+             return GuitarraState
+         });
+         setcarrito(carritoActulizado)
+     } else {
+         setcarrito([...carrito, guitarra]);
+     }
+ };
+
+ 
+const actulizarvalor = guitarra => {
+
+      const cantidadactulizada = carrito.map((GuitarraState) => {
+        if (GuitarraState.id === guitarra.id) {
+            GuitarraState.cantidad = guitarra.cantidad;
+        }
+        return GuitarraState
+});
+
+setcarrito(cantidadactulizada)
+
+}
+
+const eliminadoguitarra = (id) => {
+
+    const cantidadactulizada = carrito.filter((GuitarraState) => GuitarraState.id != id);
+
+    setcarrito(cantidadactulizada);
+};
+
   return (
    <Document>
-      < Outlet/>
+      < Outlet
+          context = 
+          {
+            {
+              agregarcarrito,
+              carrito,
+              actulizarvalor,
+              eliminadoguitarra
+           }
+         }
+          
+      />
    </Document>
   );
 }

@@ -56,27 +56,29 @@
  align-items: center;
  }
 
- @media (min-width:768px){
- 
-  .barra {
-    flex-direction: row;
-    justify-content: space-between;
+ @media (min-width:768px) {
 
-  }
+   .barra {
+     flex-direction: row;
+     justify-content: space-between;
 
-  .header .navegacion {
+   }
+   .header .navegacion {
 
-   margin-top: 0;
-
-  }
-
-
-}
+     margin-top: 0;
+   }
+ }
 
   .header .navegacion {
     display: flex;
+    align-items: center;
     gap: 2rem;
     margin-top: 5rem;
+  }
+
+  .header .navegacion img {
+  width: 3.5rem;
+  height: auto;
   }
 
 .header .navegacion a {
